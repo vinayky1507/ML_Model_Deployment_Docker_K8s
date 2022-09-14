@@ -3,7 +3,7 @@ from pycaret.regression import *
 import pandas as pd
 import pickle
 import numpy as np
-
+import config
 app = Flask(__name__)
 
 model = load_model('deployment_28082022')
@@ -31,5 +31,5 @@ def predict_api():
     return jsonify(output)
 
 if __name__ == '__main__':
-    # app.run(host="0.0.0.0", port=config.PORT, debug=config.DEBUG_MODE)
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=config.PORT, debug=config.DEBUG_MODE)
+    
